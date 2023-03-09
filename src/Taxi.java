@@ -19,9 +19,18 @@ public class Taxi extends Car {
     }
 
 
-    public void printTaxi() {
-        printCar();
+    public void printInfo() {
+        super.printInfo();
         System.out.println("Fare Collected: " + fareCollected);
+    }
+
+    @Override
+    public double calculateCongestionPricing() {return 0.00;} // Taxis not subject to congestion pricing
+
+    public boolean chargeAndDropOffRiders(double farePerRider) {
+        int customers = getPassengers()-1;
+        fareCollected+=customers*farePerRider;
+        return dropOffPassengers(customers);
     }
 
     private void applyTaxiDiscount() {

@@ -30,15 +30,24 @@ public class Car extends Vehicle {
     }
   }
 
+  @Override
+  public double calculateTollPrice() {
+    if (getPassengers()>=4) {
+      return getTollFee()*4;
+    } else {
+      return super.calculateTollPrice();
+    }
+  }
+
+
 
   // Prints the:
   //    Car's license plate, toll fee, number of passengers, whether it is electric,
   //    and whether a discount has been applied.
   //    Add getter methods as necessary to the Vehicle superclass.
-  public void printCar() {
-    System.out.println("License Plate: " + getLicensePlate());
-    System.out.println("Toll Fee: " + getTollFee());
-    System.out.println("Number of Passengers: " + getPassengers());
+  @Override
+  public void printInfo() {
+    super.printInfo();
     System.out.println("Electric: " + electric);
     System.out.println("Discount Applied: " + discountApplied);
   }

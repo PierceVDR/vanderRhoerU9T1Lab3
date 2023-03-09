@@ -22,14 +22,20 @@ public class Truck extends Vehicle {
     }
   }
 
+  @Override
+  public double calculateTollPrice() {
+    double price=getTollFee() * axles;
+    if (hasTrailer) {price*=2;}
+    return price;
+  }
+
   // Prints the:
   //    Truck's license plate, toll fee, number of passengers, number of axles,
   //    and whether it has a trailer.
   //    Add getter methods as necessary to the Vehicle superclass.
-  public void printTruck() {
-    System.out.println("License Plate: " + getLicensePlate());
-    System.out.println("Toll Fee: " + getTollFee());
-    System.out.println("Number of Passengers: " + getPassengers());
+  @Override
+  public void printInfo() {
+    super.printInfo();
     System.out.println("Number of Axles: " + axles);
     System.out.println("Has a Trailer: " + hasTrailer);
   }

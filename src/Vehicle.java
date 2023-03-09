@@ -22,4 +22,14 @@ public class Vehicle {
   public double calculateTollPrice() {
     return tollFee * passengers;
   }
+
+  public void printInfo() {
+    System.out.println("License Plate: " + getLicensePlate());
+    System.out.println("Toll Fee: " + getTollFee());
+    System.out.println("Number of Passengers: " + getPassengers());
+    System.out.println("Toll Price: " + calculateTollPrice());
+    System.out.println("Congestion Pricing: " + calculateCongestionPricing());
+  }
+
+  public double calculateCongestionPricing() {return tollFee*0.5;}
 }
